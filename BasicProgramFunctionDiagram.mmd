@@ -1,0 +1,40 @@
+﻿graph TD
+    A[Program Start] --> C{Check if Library File exists}
+    
+    C -->|Yes| -[Create Load Files Persons.xml and Books.xml] --> D
+    F[Load Files Persons.xml and Books.xml]
+    C -->|No| F[Create Files Persons.xml and Books.xml] --> D
+    D[Wait for user entry to choose function] --> xy
+
+    G[1] --> AB[RegisterPerson]
+    H[2] --> RegisterBook
+    I[3] --> LendBook
+    J[4] --> ReturnBook
+    K[5] --> ListAllBooks
+    L[6] --> ListAllPersons
+    M[7] --> ListAllBorrowedBooks
+    N[8] --> UnUsed
+    O[9] --> ExitTheProgram
+
+    subgraph Switch
+        xy[SwitchOnUserEntry]-->G
+        xy[SwitchOnUserEntry]-->H
+        xy[SwitchOnUserEntry]-->I
+        xy[SwitchOnUserEntry]-->J
+        xy[SwitchOnUserEntry]-->K
+        xy[SwitchOnUserEntry]-->L
+        xy[SwitchOnUserEntry]-->M
+        xy[SwitchOnUserEntry]-->N
+        xy[SwitchOnUserEntry]-->O
+        subgraph Values 
+            G
+            H
+            I
+            J
+            K
+            L
+            M
+            N
+            O
+        end
+    end
